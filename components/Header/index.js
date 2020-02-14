@@ -9,4 +9,14 @@
 //  </div >
 // And add it to the DOM in the .header-container component
 
-function Header() {}
+import {div, span, h1} from "../../El/El.js";
+
+function Header() {
+    return div("header", [
+        span("SMARCH 28, 2019").className("date"),
+        h1("Lambda Times"),
+        span("98°").className("temp"),
+    ]).done();
+}
+
+document.querySelector(".header-container").appendChild(Header());
