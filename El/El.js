@@ -1,5 +1,5 @@
 // Convienent API for building HTML stuff
-class El {
+export class El {
     constructor(elementName) {
         this.element = document.createElement(elementName);
     }
@@ -39,27 +39,31 @@ class El {
     }
 }
 
-function p(text) {
+export function p(text) {
     return new El("p").text(text);
 }
 
-function h2(text) {
+export function h1(text) {
     return new El("h2").text(text);
 }
 
-function h3(text) {
+export function h2(text) {
+    return new El("h2").text(text);
+}
+
+export function h3(text) {
     return new El("h3").text(text);
 }
 
-function span(text) {
+export function span(text) {
     return new El("span").text(text);
 }
 
-function li(text) {
+export function li(text) {
     return new El("li").text(text);
 }
 
-function div(className, children) {
+export function div(className, children) {
     const el = new El("div");
     if (className !== undefined) {
         el.className(className);
@@ -70,7 +74,7 @@ function div(className, children) {
     return el;
 }
 
-function ul(children) {
+export function ul(children) {
     const el = new El("ul");
     if (children !== undefined) {
         el.children(children);
@@ -78,11 +82,11 @@ function ul(children) {
     return el;
 }
 
-function img(src) {
+export function img(src) {
     return new El("img").attr("src", src);
 }
 
-function a(text, href) {
+export function a(text, href) {
     return new El("a").text(text).attr("href", href);
 }
 
