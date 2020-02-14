@@ -16,7 +16,6 @@ function Tab(topic) {
 
 axios.get("https://lambda-times-backend.herokuapp.com/topics")
     .then(res => {
-        console.log(res.data);
         let topicsElement = document.querySelector(".topics");
         res.data.topics.forEach(topic => topicsElement.appendChild(Tab(topic)));
     });
