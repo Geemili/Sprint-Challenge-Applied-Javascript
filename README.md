@@ -50,13 +50,40 @@ by your project manager
 
 1. What is the DOM?
 
+   - DOM is short for Document Object Model. The longer version of the name
+     gives us a hint at it's purpose; the DOM is a model of the HMTL document
+     using JavaScript objects. More importantly, DOM objects expose functions
+     like `appendChild` and attributes like `textContent` to allow javascript to
+     modify HTML documents on the fly.
+
 2. What is an event?
+
+   - An event is when something happens to the page, usually involving user
+     input. `click`, `scroll`, and `keydown` are all events that are generated
+     when the user is using a site.
+
+   - As developers, we can create JavaScript that listens for these events and
+     reacts to it. Like creating a button that shows more content, or shows some
+     hidden content.
 
 3. What is an event listener?
 
+   - Basically, what I said in the second paragraph above. It is some code that
+     runs when a specific event is generated.
+
 4. Why would we convert a NodeList into an Array?
 
+   - An `Array` has functions (like `map` and `reduce`) that a `NodeList`
+     doesn't have. Recent browser versions do implement forEach for `NodeList`s,
+     but converting to an `Array` is still worth it for the other functions that
+     are not implemented on `NodeList`s.
+
 5. What is a component?
+
+- A component is a reusable piece of HTML that is generated programmatically. If
+  you have a dynamic site, these pop up everywhere. For example, a social media
+  post is a component with a message, a like button, and comments. Each post has
+  the same structure, with data that is filled in by the user.
 
 ### Git Set up
 
