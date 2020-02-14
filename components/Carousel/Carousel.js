@@ -33,7 +33,6 @@ function wrap(x, n) {
 
 function Carousel(images) {
     const imageEls = images.map(src => img(src));
-    const carousel = div("carousel");
 
     let curIdx = 0;
     imageEls[0].element.style.display = 'initial';
@@ -49,12 +48,11 @@ function Carousel(images) {
         }
     };
 
-    carousel.children([
+    return div("carousel", [
         div("left-button").text("<").onClick(() => changeImage(-1)),
         ...imageEls,
         div("right-button").text(">").onClick(() => changeImage(1)),
-    ]);
-    return carousel.done();
+    ]).done();
 }
 
 document.querySelector(".carousel-container").appendChild(Carousel(images));
