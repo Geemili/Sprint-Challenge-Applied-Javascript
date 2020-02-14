@@ -120,12 +120,12 @@ This is going to be a bit different because you are going to need to create some
 advanced functionality for the carousel. There is no need to request data for
 this exercise.
 
-- [ ] Complete the carousel functionality in `Carousel.js`
+- [x] Complete the carousel functionality in `Carousel.js`
 
 - [ ] If you complete the Carousel, add functionality so that the carousel
       slides when the buttons are pressed instead of just appearing.
 
-- [ ] Create an 'infinite loop' carousel. In which as long as you click on an
+- [x] Create an 'infinite loop' carousel. In which as long as you click on an
       arrow, the array of images will loop over itself.
 
 - [ ] If you have finished the above, research `data attributes`. Implement data

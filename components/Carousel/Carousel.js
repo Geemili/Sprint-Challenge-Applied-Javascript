@@ -17,3 +17,44 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+import {div, img} from "../../El/El.js";
+
+const images = [ 
+    "./assets/carousel/mountains.jpeg",
+    "./assets/carousel/computer.jpeg",
+    "./assets/carousel/trees.jpeg",
+    "./assets/carousel/turntable.jpeg",
+];
+
+function wrap(x, n) {
+    return ((x % n) + n) % n;
+}
+
+function Carousel(images) {
+    const imageEls = images.map(src => img(src));
+    const carousel = div("carousel");
+
+    let curIdx = 0;
+    imageEls[0].element.style.display = 'initial';
+    const changeImage = function(direction) {
+        if (direction != 0) {
+            const dir = direction / Math.abs(direction);
+            const nextIdx = wrap(curIdx + dir, images.length);
+
+            imageEls[curIdx].element.style.display = null;
+            imageEls[nextIdx].element.style.display = 'initial';
+
+            curIdx = nextIdx;
+        }
+    };
+
+    carousel.children([
+        div("left-button").text("<").onClick(() => changeImage(-1)),
+        ...imageEls,
+        div("right-button").text(">").onClick(() => changeImage(1)),
+    ]);
+    return carousel.done();
+}
+
+document.querySelector(".carousel-container").appendChild(Carousel(images));
