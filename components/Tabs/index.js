@@ -28,7 +28,6 @@ function setCardFilter(topic) {
         } else if (card.dataset.topic !== topic) {
             card.style.display = 'none';
         }
-        console.log(card.dataset.topic, card.style.display);
     });
 }
 
