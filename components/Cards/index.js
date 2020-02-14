@@ -20,7 +20,7 @@
 
 import {div, img, span} from "../../El/El.js";
 
-function Article(props) {
+function Article(props, topic) {
     return div("card", [
         div("headline").text(props.headline),
         div("author", [
@@ -29,7 +29,9 @@ function Article(props) {
             ]),
             span(`By ${props.authorName}`),
         ]),
-    ]).done();
+    ])
+    .dataset("topic", topic)
+    .done();
 }
 
 axios.get("https://lambda-times-backend.herokuapp.com/articles")
@@ -38,7 +40,7 @@ axios.get("https://lambda-times-backend.herokuapp.com/articles")
         const cards = document.querySelector(".cards-container");
         for (const topic of Object.keys(res.data.articles)) {
             for (const article of res.data.articles[topic]) {
-                cards.appendChild(Article(article));
+                cards.appendChild(Article(article, topic));
             }
         }
     });

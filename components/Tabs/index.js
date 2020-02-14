@@ -11,7 +11,25 @@
 import {div} from "../../El/El.js";
 
 function Tab(topic) {
-    return div("tab").text(topic).done();
+    let topicFixed = topic;
+    // Since they don't match in the data, I'll have to fix it myself.
+    if (topic === "node.js") {
+        topicFixed = "node";
+    }
+    return div("tab").text(topic).onClick(() => setCardFilter(topicFixed)).done();
+}
+
+function setCardFilter(topic) {
+    document.querySelectorAll(".card").forEach(card => {
+        if (topic === null) {
+            card.style.display = null;
+        } else if (card.dataset.topic === topic) {
+            card.style.display = null;
+        } else if (card.dataset.topic !== topic) {
+            card.style.display = 'none';
+        }
+        console.log(card.dataset.topic, card.style.display);
+    });
 }
 
 axios.get("https://lambda-times-backend.herokuapp.com/topics")

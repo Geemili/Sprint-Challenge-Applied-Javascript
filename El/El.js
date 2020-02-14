@@ -34,6 +34,11 @@ export class El {
         return this;
     }
 
+    dataset(name, val) {
+        this.element.dataset[name] = val;
+        return this;
+    }
+
     done() {
         return this.element;
     }
